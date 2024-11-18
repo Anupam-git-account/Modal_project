@@ -1,0 +1,278 @@
+body{
+    margin:0;
+
+}
+p{
+    font-style: italic;
+}
+
+
+.question-container {
+  margin-bottom: 20px;
+}
+.navigation-buttons {
+  position: fixed;
+  bottom: 100px; /* Fix to the bottom of the screen */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+}
+
+.question-text {
+  font-size: 24px; /* Adjust the size as needed */
+  font-weight: bold;
+  color: #333; /* You can change the color as well */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2%;
+  font-family: 'Georgia', serif;
+}
+/* Ensure question text wraps and starts on a new line */
+
+
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 2%;
+}
+
+.option {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+  text-align: center;
+}
+
+.option:hover {
+  background-color: #ddd;
+}
+
+.option.selected {
+  background-color: #4CAF50;
+  color: white;
+}
+
+textarea {
+  width: (100% 10%); /* Ensures the input takes 100% width minus the 200px margin */
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: vertical; /* Allows the user to resize the textarea */
+  margin-top: 10px; /* Adds spacing above the textarea */
+  margin: 25px; /* Adds margin on all sides */
+  margin-right: 25px; /* Specifically adds margin to the right side */
+  display: block; /* Ensures it behaves as a block-level element */
+}
+
+
+
+textarea:focus {
+  outline: none;
+  border-color: #80a4e8;
+}
+
+.backandsubmit {
+  background-color: #ddd;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+  text-align: center;
+}
+
+.backandsubmit:hover {
+  background-color: #80a4e8;
+}
+
+/* Styling for navigation buttons (Back and Next buttons) */
+.navigation-buttons button {
+  background-color: #4ac5f2;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.navigation-buttons button:hover {
+  background-color: #24b1e4;
+  
+}
+
+.navigation-buttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.submit-button {
+  background-color: #007bff; /* Blue color for visibility */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s;
+   bottom: 200px;
+   position: fixed;
+  bottom: 50px; /* Position the submit button just below the back/next buttons */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px; /* Set width equal to combined width of Back and Next buttons */
+  z-index: 0; /* Ensure submit button is below navigation buttons */
+}
+
+.submit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  /* transform: scale(1.05); Slight scale effect for feedback */
+}
+
+.submit-button:active {
+  background-color: #004085; /* Darkest blue when active */
+  transform: scale(1); /* Reset scale when clicked */
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.one-line-answer {
+  width: calc(100% 20%); /* Ensures the input takes 100% width minus the 200px margin */
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-top: 10px;
+  display: block;
+  margin: 25px;
+  margin-right: 0; /* Remove the right margin */
+}
+
+
+.one-line-answer::placeholder {
+  color: #888; /* Placeholder color */
+  font-size: 14px; /* Match placeholder size to input size */
+}
+
+/* Container Styles */
+.questions-container {
+  position: fixed;
+  top: 11%; /* Adjust to desired position */
+  right: 5%; /* Adjust to desired position */
+  width: 200px; /* Adjust the width */
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  z-index: 1000;
+}
+
+.container-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* Question List Buttons */
+.question-list {
+  margin-top: 10px;
+  height: auto;
+}
+
+.question-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 3 buttons per row */
+  gap: 10px; /* Space between buttons */
+}
+
+/* Default Styles for the Button */
+.question-btn {
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, color 0.3s;
+}
+
+/* Orange for 'Not Answered' */
+.question-btn.not-answered {
+  background-color: orange;
+  color: white;
+}
+
+/* Green for 'Answered' */
+.question-btn.answered {
+  background-color: green;
+  color: white;
+}
+
+/* Yellow for 'Current' */
+.question-btn.current {
+  background-color:#4caf50;
+  color: black;
+  border-color: #ccc;
+}
+
+/* Grey for 'Not Selected' */
+.question-btn.not-selected {
+  background-color: lightgrey;
+  color: black;
+  border-color: #aaa;
+}
+
+/* Hover Effects */
+.question-btn:hover {
+  transform: scale(1.05);
+  border-color: #4caf50;
+}
+
+
+
+ .status-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .status-box {
+    width: 10px;
+    height: 10px;
+    border-radius: 4px;
+  }
+
+  .submitted {
+    background-color: green;
+  }
+
+  .not-answered {
+    background-color: orange;
+  }
+
+  .present {
+    background-color: grey;
+  }
+
+
+
+
+
+
+
