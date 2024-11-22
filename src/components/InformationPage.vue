@@ -17,6 +17,9 @@
       <div class="sidebar-item">
         <font-awesome-icon icon="unlock" class="icon" />
         <p class="text"><b>No Device Lock</b></p>
+
+
+        
       </div>
 
      
