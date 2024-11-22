@@ -1,26 +1,23 @@
 <template>
-  <div>
-    <!-- Corrected inline style syntax -->
-    <Header style="margin-top:-60px;" />
-    <!-- <AlertBox :alertTitle="alertTitle" :alertMessage="alertMessage" />
-    <button @click="showSwalAlert">Show SweetAlert</button> -->
-    <!-- Ensure consistent component naming -->
-    <QuestionsList />
+  <div id="app">
+    <router-view></router-view>
   </div>
 </template>
+
 
 <script>
 import Swal from 'sweetalert2';
 import AlertBox from './components/AlertBox.vue';
 import Header from './components/Header.vue';
 import QuestionsList from './components/QuestionsList.vue'; // Adjusted the import name
-
+import QuestionsPage from "./components/QuestionPage.vue";
 export default {
   name: 'App',
   components: {
     AlertBox,
     Header,
-    QuestionsList // Ensure this matches your template
+    // QuestionsList ,// Ensure this matches your template
+    QuestionsPage
   },
   data() {
     return {

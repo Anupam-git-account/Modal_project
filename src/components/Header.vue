@@ -49,7 +49,7 @@ export default {
   padding: 0px 20px;
   background-color: brown; /* Adjust color as needed */
   color: white;
-  
+  width: 101%;
 }
 
 .header-info {
