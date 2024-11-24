@@ -44,7 +44,7 @@ export default {
   methods: {
     proceed() {
       // Logic when user clicks proceed, could be navigation or any other action
-      this.$router.push({ name: "NextPage" }); // Example: Navigate to next page
+      this.$router.push({ name: "Info" }); // Example: Navigate to next page
     },
   },
 };

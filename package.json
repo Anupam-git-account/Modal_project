@@ -15,6 +15,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "core-js": "^3.8.3",
+    "primeicons": "^7.0.0",
     "sweetalert2": "^11.14.5",
     "vue": "^3.5.13",
     "vue-icons": "^2.0.0",

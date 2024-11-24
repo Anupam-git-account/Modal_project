@@ -1,664 +1,82 @@
-body {
-  margin: 0;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
+/* global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 
-
-.question-container {
-  margin-bottom: 20px;
-}
-
-.navigation-buttons {
-  position: fixed;
-  bottom: 100px;
-  /* Fix to the bottom of the screen */
-  left: 50%;
-  transform: translateX(-50%);
+/* Header Styling */
+/* Header Styling */
+header {
+  background-color: #edf0f4;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px 32px;
   display: flex;
-  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed black;
+  
 }
 
-.question-text {
-  font-size: 24px;
-  /* Adjust the size as needed */
-  font-weight: bold;
-  color: #333;
-  /* You can change the color as well */
-  display: block;
-  /* Change to block to better handle text */
-  margin: 2%;
-  font-family: 'Georgia', serif;
-  text-align: left;
-  /* Ensure text aligns left */
-  white-space: normal;
-  /* Allows the text to wrap normally */
+header h6 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: black;
 }
 
-/* Ensure question text wraps and starts on a new line */
-
-
-
-.options-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 2%;
+header .text-blue-600 {
+  color: #3b82f6;
+  font-weight: 600;
 }
 
-.option {
-  background-color: #f0f0f0;
-  color: #333;
-  padding: 10px;
+header button {
+  font-size: 0.875rem;
+  padding: 8px 16px;
+  border: 1px solid #e5e7eb;
   border-radius: 8px;
+  background-color: transparent;
+  color: #333333;
   cursor: pointer;
-  transition: background-color 0.3s;
-  margin: 5px;
-  text-align: center;
+  transition: background-color 0.3s ease;
 }
 
-.option:hover {
-  background-color: #ddd;
+header button:hover {
+  background-color: #f3f4f6;
 }
 
-.option.selected {
-  background-color: #4CAF50;
-  color: white;
-}
-
-textarea {
-  width: (100% 10%);
-  /* Ensures the input takes 100% width minus the 200px margin */
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  resize: vertical;
-  /* Allows the user to resize the textarea */
-  margin-top: 10px;
-  /* Adds spacing above the textarea */
-  margin: 25px;
-  /* Adds margin on all sides */
-  margin-right: 25px;
-  /* Specifically adds margin to the right side */
-  display: block;
-  /* Ensures it behaves as a block-level element */
-}
-
-
-
-textarea:focus {
+header button:focus {
   outline: none;
-  border-color: #80a4e8;
+  box-shadow: 0 0 0 2px #262626;
 }
 
-.backandsubmit {
-  /* position: fixed; */
-  background-color: #ddd;
-  color: #333;
-  padding: 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin: 5px;
-  text-align: center;
-}
-
-.backandsubmit:hover {
-  background-color: #80a4e8;
-}
-
-/* Styling for navigation buttons (Back and Next buttons) */
-.navigation-buttons button {
-  background-color: #4ac5f2;
-  color: white;
-  border: none;
-  font-weight: bold;
-  /* position: inherit; */
+/* Custom radio button focus ring */
+input[type="radio"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #60a5fa;
+  border-radius: 50%;
 
 }
 
-.navigation-buttons button:hover {
-  background-color: #24b1e4;
-
+/* Tailwind classes are already sufficient, but you can customize more if needed */
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.navigation-buttons button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.submit-button {
-  background-color: #007bff;
-  /* Blue color for visibility */
-  color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  /* transition: background-color 0.3s, transform 0.2s; */
-  bottom: 20px;
-  position: fixed;
-  left: 43.6%;
-  /* transform: translateX(-50%); */
-  width: 250px;
-  /* Set width equal to combined width of Back and Next buttons */
-  z-index: 0;
-  /* Ensure submit button is below navigation buttons */
-}
-
-.submit-button:hover {
-  background-color: #0056b3;
-  /* Darker blue on hover */
-  /* transform: scale(1.05); Slight scale effect for feedback */
-}
-
-.submit-button:active {
-  background-color: #004085;
-  /* Darkest blue when active */
-  transform: scale(1);
-  /* Reset scale when clicked */
-}
-
-.submit-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.one-line-answer {
-  width: calc(100% 20%);
-  /* Ensures the input takes 100% width minus the 200px margin */
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  margin-top: 10px;
-  display: block;
-  margin: 25px;
-  margin-right: 0;
-  /* Remove the right margin */
-}
-
-
-.one-line-answer::placeholder {
-  color: #888;
-  /* Placeholder color */
-  font-size: 14px;
-  /* Match placeholder size to input size */
-}
-
-/* Container Styles */
-.questions-container-wrapper {
-  position: relative;
-  /* Ensures the container moves with the window resize */
-  width: 100%;
-  /* Adjust if you need to limit its containing area */
-}
-
-.questions-container {
-  position: absolute;
-  /* Positioned relative to the parent */
-  margin-top: 15%;
-  /* Adjust to desired position */
-  /* right: 5%; Adjust to desired position */
-  /* width: 250px; Adjust the width */
-  background-color: #f9f9f9;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  z-index: 1000;
-  margin-left: -50px;
-}
-
-
-.container-title {
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 10px;
-  color: #333;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 5px;
-}
-
-/* Question List Buttons */
-.question-list {
-  margin-top: 10px;
-  height: auto;
-  width: 90%
-}
-
-.question-buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* 3 buttons per row */
-  gap: 10px;
-  /* Space between buttons */
-}
-
-/* Default Styles for the Button */
-.question-btn {
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  border: 2px solid transparent;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s, color 0.3s;
-}
-
-/* Orange for 'Not Answered' */
-.question-btn.not-answered {
-  background-color: orange;
-  color: white;
-}
-
-/* Green for 'Answered' */
-.question-btn.answered {
-  background-color: green;
-  color: white;
-}
-
-/* Yellow for 'Current' */
-.question-btn.current {
-  background-color: #4caf50;
+footer {
+  background-color: #edf0f4;
   color: black;
-  border-color: #ccc;
-}
-
-/* Grey for 'Not Selected' */
-.question-btn.not-selected {
-  background-color: lightgrey;
-  color: black;
-  border-color: #aaa;
-}
-
-/* Hover Effects */
-.question-btn:hover {
-  transform: scale(1.05);
-  border-color: #4caf50;
-}
-
-
-
-.status-boxes {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.status-box {
-  width: 10px !important;
-  /* Adjust as needed */
-  height: 10px !important;
-  /* Adjust as needed */
-  border-radius: 50% !important;
-  /* Makes the box round */
-  display: inline-block;
-  margin-bottom: 18% !important;
-}
-
-.submitted {
-  background-color: green;
-}
-
-.not-answered {
-  background-color: orange;
-}
-
-.present {
-  background-color: grey;
-}
-
-.loader-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.loader {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-
-/* General Layout */
-.quiz-app {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-}
-
-/* Header */
-.quiz-header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #c9dff5;
-  color: rgb(0, 0, 0);
-  padding: 15px 20px;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: -60px;
-  border-bottom: 3px dashed black;
-  height: 10vh;
+  border-top: 2px dashed black;
+  
 }
-
-.header-title {
-  flex: 1;
-}
-
-.header-timer {
-  font-size: 20px;
-}
-
-/* Main Content */
-.quiz-content {
-  display: flex;
-  flex-grow: 1;
-  overflow: hidden;
-}
-
-/* Left Section: Paragraph */
-.paragraph-area {
-  flex: 2;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-right: 2px solid #ccc;
-  overflow-y: auto;
-}
-
-.paragraph-area p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.highlight {
-  color: #007bff;
-  font-weight: bold;
-}
-
-/* Right Section: Question and Options */
-.question-area {
-  flex: 3;
-  padding: 20px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.question-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.review-checkbox {
-  margin-right: 10px;
-}
-
-.question-text {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  font-weight: bold;
-}
-
-/* Options */
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.option-btn {
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: 2px solid #007bff;
-  background-color: white;
-  color: #007bff;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
+/* import 'primeicons/primeicons.css' */
 
 
-.option-btn.selected {
-  background-color: #007bff;
-  color: white;
-}
-
-/* Navigation Buttons */
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.nav-btn {
-  padding: 12px 20px;
-  font-size: 1rem;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-
-.nav-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Question Tracker */
-.question-tracker {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-/* Footer */
-/* .quiz-footer {
-  text-align: center;
-  padding: 10px 20px;
-  background-color: #f4f4f4;
-  border-top: 2px solid #ccc;
-  color: #666;
-  font-weight: bold;
-} */
-
-
-
-/* General Layout */
-.quiz-app {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  font-family: Arial, sans-serif;
-}
-
-
-.header-title {
-  flex: 1;
-  text-align: left;
-}
-
-.header-titlee {
-  flex: 1;
-  text-align: center;
-}
-
-.header-timer {
-  font-size: 20px;
-  position: absolute;
-  margin-left: 47.5%;
-}
-
-/* Main Content */
-.quiz-content {
-  display: flex;
-  overflow: hidden;
-}
-
-/* Left Section: Paragraph */
-.paragraph-area {
-  flex: 2;
-  padding: 20px;
-  background-color: #f4f4f4;
-  border-right: 2px solid #ccc;
-  overflow-y: auto;
-}
-
-.para-question {
-  padding: 70px 100px;
-  text-align: left;
-  font-family: 'Times New Roman', serif;
-}
-
-
-.paragraph-area p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-.highlight {
-  color: #007bff;
-  font-weight: bold;
-}
-
-/* Right Section: Question and Options */
-.question-area {
-  flex: 2;
-  padding: 20px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.question-header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.review-checkbox {
-  margin-right: 10px;
-}
-
-.question-text {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  font-weight: bold;
-}
-
-/* Options */
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.option-btn {
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: 2px solid #a0c2ea;
-  background-color: white;
-  color: #a0c2ea;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-  width: 40%;
-}
-
-
-
-.option-btn.selected {
-  background-color: #66a3e9;
-  color: white;
-}
-
-/* Navigation Buttons */
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.nav-btn {
-  padding: 12px 20px;
-  font-size: 1rem;
-  color: black;
-  background-color: #a0c2ea;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-
-.nav-btn:hover {
-  background-color: #66a3e9;
-  color: black;
-}
-
-
-.nav-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Question Tracker */
-.question-tracker {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-/* Footer */
-.quiz-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-  padding: 10px 20px;
-  background-color: #c9dff5;
-  border-top: 2px solid #ccc;
-  color: #666;
-  font-weight: bold;
-  margin-bottom: 0%;
-  border-top: 3px dashed black;
-  height: 10vh;
-  width: 100%
-}
-
-.button {
-  background-color: #a0c2ea;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 15px;
-  margin-top: -36px !important;
-  margin-left: -36px !important;
-  position: absolute;
-}
+/* <span class="pi pi-clock text-sm">
+<span class="pi pi-pen-to-square text-sm"></span>   
+<span class="pi pi-ellipsis-v text-sm"></span>
+<span class="pi pi-arrow-up-right text-sm"></span> */
