@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen flex flex-col bg-gray-100">
     <!-- Header -->
-    <header class="flex flex-col md:flex-row items-center justify-between p-4 shadow-md bg-grey fixed top-0 left-0 w-full z-10">
+    <header class="bg-gray-100 shadow-md p-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 fixed top-0 left-0 w-full z-10">
   <div class="w-full md:w-auto mb-2 md:mb-0">
     <h6 class="text-sm font-semibold text-center md:text-left">
       Section 1, Module 1: Reading and Writing
@@ -18,7 +18,7 @@
       <div v-if="showTimer" class="text-blue-600 font-semibold text-sm">
         {{ timer }}
       </div>
-      <span v-else class="text-blue-600 text-xl"> <span class="pi pi-clock text-sm"></span></span>
+      <span v-else class="text-blue-900 text-sm"> <span class="pi pi-clock text-xs"></span></span>
       <button 
         @click="toggleTimer" 
         class="text-xs px-1 py-0.5 border rounded-full hover:bg-gray-100 transition mt-1">
@@ -93,12 +93,13 @@
 
       <!-- Question Section -->
      <section class="bg-white shadow-md p-4 flex-1 rounded-md relative"> <!-- Reduced padding -->
-  <div class="flex justify-between items-center mb-2"> <!-- Reduced margin -->
+  <div class="flex justify-between items-center mb-2  bg-gray-100 p-4  border-b border-dashed border-black bg-gray-100" > <!-- Reduced margin -->
     <div class="flex items-center">
-      <div class="text-base font-bold text-gray-700 mr-1"> <!-- Smaller font size -->
-        {{ currentQuestionNumber }}.
-      </div>
-      <div class="flex items-center">
+      <div class="text-xl font-bold text-gray-700 mr-1 "> <!-- Smaller font size -->
+         {{ currentQuestionNumber }}.
+      </div><BookmarkIcon className="w-2 h-2 text-blue-500" />
+
+      <div class="flex items-center ">
         <pi-bookmark class="text-gray-500 mr-1" size="1.2em" /> <!-- Smaller icon -->
         <input 
           type="checkbox" 
@@ -108,7 +109,7 @@
         />
         <label 
           for="mark-review" 
-          class="text-xs font-semibold text-gray-700 cursor-pointer flex items-center"> <!-- Smaller text -->
+          class="text-xl font-semibold text-gray-700 cursor-pointer flex items-center"> <!-- Smaller text -->
           <span :class="{ 'text-blue-700': markForReview }">Mark for Review</span>
         </label>
       </div>
@@ -167,11 +168,12 @@
       </div>
 
       <div class="flex justify-center items-center">
-        <span 
-          @click="toggleQuestionNavigation" 
-          class="text-sm font-semibold text-gray-700 cursor-pointer hover:underline">
-          Question: <span class="text-blue-600">{{ currentQuestion }} of {{ totalQuestions }}</span>
-        </span>
+      <span 
+  @click="toggleQuestionNavigation" 
+  class="text-sm font-semibold text-white cursor-pointer hover:underline border border-black bg-black  rounded-xl p-2">
+  Question: <span class="text-white-600">{{ currentQuestion }} of {{ totalQuestions }}</span>
+</span>
+
       </div>
 
       <div class="flex space-x-4 justify-center md:justify-end">
@@ -232,7 +234,9 @@
 
 <script>
 import 'primeicons/primeicons.css'
+import { BookmarkIcon } from '@heroicons/vue/24/solid'
 export default {
+  components: {BookmarkIcon},
   data() {
     return {
       showDirections: false,
